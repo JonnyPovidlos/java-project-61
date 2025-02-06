@@ -1,8 +1,8 @@
 plugins {
-    id("java")
+    java
     id("com.github.ben-manes.versions") version "0.52.0"
-    id("application")
-    id("checkstyle")
+    application
+    checkstyle
 }
 
 group = "hexlet.code"
