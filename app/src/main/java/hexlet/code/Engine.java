@@ -14,9 +14,9 @@ public final class Engine {
     public static final String LOSE_PHRASE = "'%s' is wrong answer ;(. Correct answer was '%s'\nLet's try again, %s!\n";
     public static final String WIN_PHRASE = "Congratulations, %s!";
 
-    Engine(IGame game, String player) {
-        this.game = game;
-        this.player = player;
+    Engine(IGame g, String p) {
+        this.game = g;
+        this.player = p;
         this.generator = new Random();
     }
 
