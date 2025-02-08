@@ -4,7 +4,7 @@ import hexlet.code.IGame;
 
 import java.util.Random;
 
-public class Prime implements IGame {
+public final class Prime implements IGame {
 
     private String answer;
 
@@ -33,7 +33,7 @@ public class Prime implements IGame {
             return false;
         }
 
-        for (int i = 2; i * i <= number; i ++){
+        for (int i = 2; i * i <= number; i++) {
             if (number % i == 0) {
                 return false;
             }

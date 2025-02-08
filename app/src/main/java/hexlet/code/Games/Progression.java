@@ -4,7 +4,7 @@ import hexlet.code.IGame;
 
 import java.util.Random;
 
-public class Progression implements IGame {
+public final class Progression implements IGame {
 
     private int answer;
 

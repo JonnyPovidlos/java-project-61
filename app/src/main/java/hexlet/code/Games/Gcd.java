@@ -4,7 +4,7 @@ import hexlet.code.IGame;
 
 import java.util.Random;
 
-public class Gcd implements IGame {
+public final class Gcd implements IGame {
 
     private int answer;
 

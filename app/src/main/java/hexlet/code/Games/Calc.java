@@ -4,7 +4,7 @@ import hexlet.code.IGame;
 
 import java.util.Random;
 
-public class Calc implements IGame {
+public final class Calc implements IGame {
 
     private int answer;
 
