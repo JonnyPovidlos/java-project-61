@@ -8,13 +8,14 @@ public class Even implements IGame {
 
     private static final String INTRODUCING_PHRASE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private static final String QUESTION_PHRASE = "%s";
+    private static final int MAX_VALUE = 10000;
 
     public String getIntroducingPhrase() {
         return INTRODUCING_PHRASE;
     }
 
     public String getQuestion(Random generator) {
-        int number = generator.nextInt(10000);
+        int number = generator.nextInt(MAX_VALUE);
 
         answer = (number % 2 == 0) ? "yes" : "no";
 

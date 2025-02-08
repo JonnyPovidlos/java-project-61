@@ -5,5 +5,8 @@
 Игра: "Проверка на чётность"
 [![asciicast](https://asciinema.org/a/CEESUBOw772f29ULGTN0gdeIL.svg)](https://asciinema.org/a/CEESUBOw772f29ULGTN0gdeIL)
 
-Игра: Игра: "Калькулятор"
+Игра: "Калькулятор"
 [![asciicast](https://asciinema.org/a/AKHCodPCtEYQ2G5rnHpSAFwaf.svg)](https://asciinema.org/a/AKHCodPCtEYQ2G5rnHpSAFwaf)
+
+Игра: "Наибольший общий делитель"
+[![asciicast](https://asciinema.org/a/Azy70fdlkzuAwpGz1fFJwfLE4.svg)](https://asciinema.org/a/Azy70fdlkzuAwpGz1fFJwfLE4)
