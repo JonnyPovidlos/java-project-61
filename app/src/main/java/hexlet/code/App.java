@@ -8,6 +8,7 @@ public class App {
     public static final int EVEN = 2;
     public static final int CALC = 3;
     public static final int GCD = 4;
+    public static final int PROGRESSION = 5;
     public static final int EXIT = 0;
     public static final String CHOICE_PHRASE = """
             Please enter the game number and press Enter.
@@ -15,6 +16,7 @@ public class App {
             2 - Even
             3 - Calc
             4 - GCD
+            5 - Progression
             0 - Exit
             Your choice:\s""";
 
@@ -45,6 +47,11 @@ public class App {
                 break;
             case GCD:
                 game = new Gcd();
+                engine = new Engine(game, greeting(in));
+                engine.run(in);
+                break;
+            case PROGRESSION:
+                game = new Progression();
                 engine = new Engine(game, greeting(in));
                 engine.run(in);
                 break;
