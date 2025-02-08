@@ -9,6 +9,7 @@ public class App {
     public static final int CALC = 3;
     public static final int GCD = 4;
     public static final int PROGRESSION = 5;
+    public static final int PRIME = 6;
     public static final int EXIT = 0;
     public static final String CHOICE_PHRASE = """
             Please enter the game number and press Enter.
@@ -17,6 +18,7 @@ public class App {
             3 - Calc
             4 - GCD
             5 - Progression
+            6 - Prime
             0 - Exit
             Your choice:\s""";
 
@@ -34,30 +36,28 @@ public class App {
                 return;
             case GREET:
                 greeting(in);
-                break;
+                return;
             case EVEN:
                 game = new Even();
-                engine = new Engine(game, greeting(in));
-                engine.run(in);
                 break;
             case CALC:
                 game = new Calc();
-                engine = new Engine(game, greeting(in));
-                engine.run(in);
                 break;
             case GCD:
                 game = new Gcd();
-                engine = new Engine(game, greeting(in));
-                engine.run(in);
                 break;
             case PROGRESSION:
                 game = new Progression();
-                engine = new Engine(game, greeting(in));
-                engine.run(in);
+                break;
+            case PRIME:
+                game = new Prime();
                 break;
             default:
                 System.out.println("Incorrect number of game.");
+                return;
         }
+        engine = new Engine(game, greeting(in));
+        engine.run(in);
     }
 
     public static String greeting(Scanner in) {
