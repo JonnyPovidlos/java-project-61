@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 
 public class App {
+    public static final int MAX_ROUNDS = 3;
+
     public static final int GREET = 1;
     public static final int EVEN = 2;
     public static final int CALC = 3;
@@ -34,8 +36,10 @@ public class App {
         Scanner in = new Scanner(System.in);
 
         int input = in.nextInt();
-        IGame game;
-        Engine engine;
+        String[][] questionsAndAnswers;
+        String questionPhrase;
+        String introducingPhrase;
+        String player;
 
         switch (input) {
             case EXIT:
@@ -44,26 +48,28 @@ public class App {
                 greeting(in);
                 return;
             case EVEN:
-                game = new Even();
+                player = greeting(in);
+                questionsAndAnswers = Even.generate(MAX_ROUNDS);
+                introducingPhrase = Even.INTRODUCING_PHRASE;
+                questionPhrase = Even.QUESTION_PHRASE;
                 break;
-            case CALC:
-                game = new Calc();
-                break;
-            case GCD:
-                game = new Gcd();
-                break;
-            case PROGRESSION:
-                game = new Progression();
-                break;
-            case PRIME:
-                game = new Prime();
-                break;
+//            case CALC:
+//                game = new Calc();
+//                break;
+//            case GCD:
+//                game = new Gcd();
+//                break;
+//            case PROGRESSION:
+//                game = new Progression();
+//                break;
+//            case PRIME:
+//                game = new Prime();
+//                break;
             default:
                 System.out.println("Incorrect number of game.");
                 return;
         }
-        engine = new Engine(game, greeting(in));
-        engine.run(in);
+        Engine.run(player, questionsAndAnswers, introducingPhrase, questionPhrase, in);
     }
 
     public static String greeting(Scanner in) {
