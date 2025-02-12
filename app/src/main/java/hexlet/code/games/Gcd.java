@@ -22,23 +22,6 @@ public final class Gcd {
         return result;
     }
 
-//    public String getIntroducingPhrase() {
-//        return INTRODUCING_PHRASE;
-//    }
-//
-//    public String getQuestion(Random generator) {
-//        int operand1 = generator.nextInt(MAX_OPERANDS_VALUE);
-//        int operand2 = generator.nextInt(MAX_OPERANDS_VALUE);
-//
-//        answer = findGCD(operand1, operand2);
-//
-//
-//        return String.format(QUESTION_PHRASE, operand1, operand2);
-//    }
-//    public String getAnswer() {
-//        return Integer.toString(answer);
-//    }
-//
     private static int findGCD(int operand1, int operand2) {
         int tmp;
 

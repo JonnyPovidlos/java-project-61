@@ -64,9 +64,11 @@ public class App {
                 questionsAndAnswers = Gcd.generate(MAX_ROUNDS, generator);
                 introducingPhrase = Gcd.INTRODUCING_PHRASE;
                 break;
-//            case PROGRESSION:
-//                game = new Progression();
-//                break;
+            case PROGRESSION:
+                player = greeting(in);
+                questionsAndAnswers = Progression.generate(MAX_ROUNDS, generator);
+                introducingPhrase = Progression.INTRODUCING_PHRASE;
+                break;
             case PRIME:
                 player = greeting(in);
                 questionsAndAnswers = Prime.generate(MAX_ROUNDS, generator);
