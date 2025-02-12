@@ -1,31 +1,25 @@
 package hexlet.code.games;
 
-import hexlet.code.IGame;
-
 import java.util.Random;
 
-public final class Prime implements IGame {
+public final class Prime {
 
-    private String answer;
+    public static final String INTRODUCING_PHRASE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    private static final String INTRODUCING_PHRASE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private static final String QUESTION_PHRASE = "%s";
+    private static final String QUESTION_PHRASE = "%d";
     private static final int MAX_VALUE = 100;
 
-    public String getIntroducingPhrase() {
-        return INTRODUCING_PHRASE;
-    }
+    public static String[][] generate(int rounds, Random generator) {
+        String[][] result = new String[3][2];
 
-    public String getQuestion(Random generator) {
-        int number = generator.nextInt(1, MAX_VALUE);
+        for (int i = 0; i < rounds; i++) {
+            int number = generator.nextInt(1, MAX_VALUE);
 
-        answer = isPrime(number) ? "yes" : "no";
+            result[i][0] = String.format(QUESTION_PHRASE, number);
+            result[i][1] = isPrime(number) ? "yes" : "no";
+        }
 
-        return String.format(QUESTION_PHRASE, number);
-    }
-
-    public String getAnswer() {
-        return answer;
+        return result;
     }
 
     private static boolean isPrime(int number) {

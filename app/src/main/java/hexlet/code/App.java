@@ -67,9 +67,11 @@ public class App {
 //            case PROGRESSION:
 //                game = new Progression();
 //                break;
-//            case PRIME:
-//                game = new Prime();
-//                break;
+            case PRIME:
+                player = greeting(in);
+                questionsAndAnswers = Prime.generate(MAX_ROUNDS, generator);
+                introducingPhrase = Prime.INTRODUCING_PHRASE;
+                break;
             default:
                 System.out.println("Incorrect number of game.");
                 return;
