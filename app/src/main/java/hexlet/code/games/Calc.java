@@ -1,44 +1,48 @@
 package hexlet.code.games;
 
-import hexlet.code.IGame;
-
 import java.util.Random;
 
-public final class Calc implements IGame {
+public final class Calc {
+    public static final String INTRODUCING_PHRASE = "What is the result of the expression?";
 
-    private int answer;
-
-    private static final String INTRODUCING_PHRASE = "What is the result of the expression?";
-    private static final String QUESTION_PHRASE = "%s %s %s";
+    private static final String QUESTION_PHRASE = "%d %s %d";
     private static final String[] AVAILABLE_OPERATORS = {"+", "-", "*"};
     private static final int MAX_OPERANDS_VALUE = 100;
 
-    public String getIntroducingPhrase() {
-        return INTRODUCING_PHRASE;
-    }
-    public String getQuestion(Random generator) {
-        int operand1 = generator.nextInt(MAX_OPERANDS_VALUE);
-        int operand2 = generator.nextInt(MAX_OPERANDS_VALUE);
-        int operatorIndex = generator.nextInt(AVAILABLE_OPERATORS.length);
+    public static String[][] generate(int rounds, Random generator) {
+        var result = new String[rounds][2];
 
-        switch (operatorIndex) {
-            case 0:
-                answer = operand1 + operand2;
-                break;
-            case 1:
-                answer = operand1 - operand2;
-                break;
-            case 2:
-                answer = operand1 * operand2;
-                break;
-            default:
-                break;
+        for (int i = 0; i < rounds; i++){
+            int operand1 = generator.nextInt(MAX_OPERANDS_VALUE);
+            int operand2 = generator.nextInt(MAX_OPERANDS_VALUE);
+            int operatorIndex = generator.nextInt(AVAILABLE_OPERATORS.length);
+            String operator = AVAILABLE_OPERATORS[operatorIndex];
+
+            result[i][0] = String.format(QUESTION_PHRASE, operand1, operator, operand2);
+            result[i][1] = Integer.toString(calculate(operand1, operand2, operator));
         }
 
-        return String.format(QUESTION_PHRASE, operand1, AVAILABLE_OPERATORS[operatorIndex], operand2);
+
+        return result;
     }
 
-    public String getAnswer() {
-        return Integer.toString(answer);
+    private static int calculate(int operand1, int operand2, String operator) {
+        int result;
+
+        switch (operator) {
+            case "+":
+                result = operand1 + operand2;
+                break;
+            case "-":
+                result = operand1 - operand2;
+                break;
+            case "*":
+                result = operand1 * operand2;
+                break;
+            default:
+                result = 0;
+        }
+        return result;
     }
 }
+

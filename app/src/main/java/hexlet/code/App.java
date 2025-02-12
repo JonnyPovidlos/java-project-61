@@ -6,6 +6,7 @@ import hexlet.code.games.Gcd;
 import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -36,8 +37,9 @@ public class App {
         Scanner in = new Scanner(System.in);
 
         int input = in.nextInt();
+
+        Random generator = new Random();
         String[][] questionsAndAnswers;
-        String questionPhrase;
         String introducingPhrase;
         String player;
 
@@ -49,13 +51,14 @@ public class App {
                 return;
             case EVEN:
                 player = greeting(in);
-                questionsAndAnswers = Even.generate(MAX_ROUNDS);
+                questionsAndAnswers = Even.generate(MAX_ROUNDS, generator);
                 introducingPhrase = Even.INTRODUCING_PHRASE;
-                questionPhrase = Even.QUESTION_PHRASE;
                 break;
-//            case CALC:
-//                game = new Calc();
-//                break;
+            case CALC:
+                player = greeting(in);
+                questionsAndAnswers = Calc.generate(MAX_ROUNDS, generator);
+                introducingPhrase = Calc.INTRODUCING_PHRASE;
+                break;
 //            case GCD:
 //                game = new Gcd();
 //                break;
@@ -69,7 +72,7 @@ public class App {
                 System.out.println("Incorrect number of game.");
                 return;
         }
-        Engine.run(player, questionsAndAnswers, introducingPhrase, questionPhrase, in);
+        Engine.run(player, questionsAndAnswers, introducingPhrase, in);
     }
 
     public static String greeting(Scanner in) {
