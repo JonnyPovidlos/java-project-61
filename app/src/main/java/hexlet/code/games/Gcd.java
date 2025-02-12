@@ -9,7 +9,7 @@ public final class Gcd {
     private static final int MAX_OPERANDS_VALUE = 100;
 
     public static String[][] generate(int rounds, Random generator) {
-        String[][] result = new String[3][2];
+        String[][] result = new String[rounds][2];
 
         for (int i = 0; i < rounds; i++) {
             int operand1 = generator.nextInt(MAX_OPERANDS_VALUE);

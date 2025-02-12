@@ -12,7 +12,7 @@ public final class Calc {
     public static String[][] generate(int rounds, Random generator) {
         var result = new String[rounds][2];
 
-        for (int i = 0; i < rounds; i++){
+        for (int i = 0; i < rounds; i++) {
             int operand1 = generator.nextInt(MAX_OPERANDS_VALUE);
             int operand2 = generator.nextInt(MAX_OPERANDS_VALUE);
             int operatorIndex = generator.nextInt(AVAILABLE_OPERATORS.length);

@@ -13,7 +13,7 @@ public final class Progression {
     private static final int MAX_FIRST_VALUE = 10;
 
     public static String[][] generate(int rounds, Random generator) {
-        String[][] result = new String[3][2];
+        String[][] result = new String[rounds][2];
 
         for (int i = 0; i < rounds; i++) {
             int length = generator.nextInt(MAX_GENERATOR) + MIN_LENGTH;

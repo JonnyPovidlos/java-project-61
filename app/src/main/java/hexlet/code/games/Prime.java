@@ -10,7 +10,7 @@ public final class Prime {
     private static final int MAX_VALUE = 100;
 
     public static String[][] generate(int rounds, Random generator) {
-        String[][] result = new String[3][2];
+        String[][] result = new String[rounds][2];
 
         for (int i = 0; i < rounds; i++) {
             int number = generator.nextInt(1, MAX_VALUE);
