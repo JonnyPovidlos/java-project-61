@@ -59,9 +59,11 @@ public class App {
                 questionsAndAnswers = Calc.generate(MAX_ROUNDS, generator);
                 introducingPhrase = Calc.INTRODUCING_PHRASE;
                 break;
-//            case GCD:
-//                game = new Gcd();
-//                break;
+            case GCD:
+                player = greeting(in);
+                questionsAndAnswers = Gcd.generate(MAX_ROUNDS, generator);
+                introducingPhrase = Gcd.INTRODUCING_PHRASE;
+                break;
 //            case PROGRESSION:
 //                game = new Progression();
 //                break;
