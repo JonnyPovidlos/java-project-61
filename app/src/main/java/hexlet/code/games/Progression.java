@@ -45,31 +45,4 @@ public final class Progression {
         }
         return progression;
     }
-//    public String getQuestion(Random generator) {
-//        int length = generator.nextInt(MAX_GENERATOR) + MIN_LENGTH;
-//        int indexOfRemove = generator.nextInt(length);
-//        int step = generator.nextInt(1, MAX_STEP);
-//        int firstValue = generator.nextInt(MAX_FIRST_VALUE);
-//
-//        StringBuilder result = new StringBuilder();
-//        if (indexOfRemove == 0) {
-//            result.append("..");
-//            answer = firstValue;
-//        } else {
-//            result.append(firstValue);
-//        }
-//
-//        int progression = firstValue;
-//        for (int i = 1; i < length; i++) {
-//            progression += step;
-//            if (i == indexOfRemove) {
-//                result.append(" ..");
-//                answer = progression;
-//                continue;
-//            }
-//            result.append(String.format(" %d", progression));
-//        }
-//
-//        return result.toString();
-//    }
 }
