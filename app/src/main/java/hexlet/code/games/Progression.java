@@ -1,25 +1,33 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
+import java.util.Scanner;
 
 public final class Progression {
 
     public static final String INTRODUCING_PHRASE = "What number is missing in the progression?";
 
     private static final String QUESTION_PHRASE = "%s";
-    private static final int MIN_LENGTH = 5;
-    private static final int MAX_GENERATOR = 10;
-    private static final int MAX_STEP = 10;
-    private static final int MAX_FIRST_VALUE = 10;
 
-    public static String[][] generate(int rounds, Random generator) {
+    public static void run(String player, Scanner in, int rounds, int minLength, int maxGenerator, int maxStep,
+                           int maxFirstValue) {
+        var generator = new Random();
+        var questionsAndAnswers = generate(rounds, generator, minLength, maxGenerator, maxStep, maxFirstValue);
+
+        Engine.run(player, questionsAndAnswers, INTRODUCING_PHRASE, in);
+    }
+
+    private static String[][] generate(int rounds, Random generator, int minLength, int maxGenerator, int maxStep,
+                                       int maxFirstValue) {
         String[][] result = new String[rounds][2];
 
         for (int i = 0; i < rounds; i++) {
-            int length = generator.nextInt(MAX_GENERATOR) + MIN_LENGTH;
+            int length = generator.nextInt(maxGenerator) + minLength;
             int indexOfRemove = generator.nextInt(length);
 
-            String[] progression = getProgression(length, generator);
+            String[] progression = getProgression(length, generator, maxStep, maxFirstValue);
 
             String answer = progression[indexOfRemove];
             progression[indexOfRemove] = "..";
@@ -32,10 +40,10 @@ public final class Progression {
         return result;
     }
 
-    private static String[] getProgression(int len, Random generator) {
+    private static String[] getProgression(int len, Random generator, int maxStep, int maxFirstValue) {
         String[] progression = new String[len];
-        int step = generator.nextInt(1, MAX_STEP);
-        int progress = generator.nextInt(MAX_FIRST_VALUE);
+        int step = generator.nextInt(1, maxStep);
+        int progress = generator.nextInt(maxFirstValue);
 
         progression[0] = Integer.toString(progress);
 
