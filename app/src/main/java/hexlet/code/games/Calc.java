@@ -26,23 +26,18 @@ public final class Calc {
         return result;
     }
 
-    private static int calculate(int operand1, int operand2, String operator) {
-        int result;
+    private static Integer calculate(int operand1, int operand2, String operator) {
 
         switch (operator) {
             case "+":
-                result = operand1 + operand2;
-                break;
+                return operand1 + operand2;
             case "-":
-                result = operand1 - operand2;
-                break;
+                return operand1 - operand2;
             case "*":
-                result = operand1 * operand2;
-                break;
+                return operand1 * operand2;
             default:
-                result = 0;
+                return null;
         }
-        return result;
     }
 }
 
