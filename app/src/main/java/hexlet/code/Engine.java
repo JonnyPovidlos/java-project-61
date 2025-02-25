@@ -9,7 +9,15 @@ public final class Engine {
     public static final String WIN_PHRASE = "Congratulations, %s!";
 
 
-    public static void run(String player, String[][] questionsAndAnswers, String introducingPhrase, Scanner in) {
+    public static void run(String[][] questionsAndAnswers, String introducingPhrase) {
+        var input = new Scanner(System.in);
+
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String player = input.next();
+        System.out.printf("Hello, %s!\n", player);
+
+
         System.out.println(introducingPhrase);
 
         for (String[] questionsAndAnswer : questionsAndAnswers) {
@@ -19,7 +27,7 @@ public final class Engine {
             var questionPhrase = String.format(QUESTION_PATTERN, question);
 
             System.out.printf(questionPhrase, question);
-            var playerAnswer = in.next();
+            var playerAnswer = input.next();
 
             if (!playerAnswer.equals(answer)) {
                 System.out.printf(LOSE_PHRASE, playerAnswer, answer, player);

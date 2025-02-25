@@ -1,33 +1,34 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
-import java.util.Scanner;
+import hexlet.code.Utils;
 
 public final class Progression {
 
     public static final String INTRODUCING_PHRASE = "What number is missing in the progression?";
 
     private static final String QUESTION_PHRASE = "%s";
+    private static final int MIN_LENGTH = 5;
+    private static final int MAX_GENERATOR = 10;
+    private static final int MAX_STEP = 10;
+    private static final int MAX_FIRST_VALUE = 10;
+    private static final int MAX_ROUNDS = 3;
 
-    public static void run(String player, Scanner in, int rounds, int minLength, int maxGenerator, int maxStep,
-                           int maxFirstValue) {
-        var generator = new Random();
-        var questionsAndAnswers = generate(rounds, generator, minLength, maxGenerator, maxStep, maxFirstValue);
+    public static void run() {
+        var questionsAndAnswers = generate(MAX_ROUNDS, MIN_LENGTH, MAX_GENERATOR, MAX_STEP, MAX_FIRST_VALUE);
 
-        Engine.run(player, questionsAndAnswers, INTRODUCING_PHRASE, in);
+        Engine.run(questionsAndAnswers, INTRODUCING_PHRASE);
     }
 
-    private static String[][] generate(int rounds, Random generator, int minLength, int maxGenerator, int maxStep,
+    private static String[][] generate(int rounds, int minLength, int maxGenerator, int maxStep,
                                        int maxFirstValue) {
         String[][] result = new String[rounds][2];
 
         for (int i = 0; i < rounds; i++) {
-            int length = generator.nextInt(maxGenerator) + minLength;
-            int indexOfRemove = generator.nextInt(length);
+            int length = Utils.getRandomInt(minLength, maxGenerator);
+            int indexOfRemove = Utils.getRandomInt(0, length);
 
-            String[] progression = getProgression(length, generator, maxStep, maxFirstValue);
+            String[] progression = getProgression(length, maxStep, maxFirstValue);
 
             String answer = progression[indexOfRemove];
             progression[indexOfRemove] = "..";
@@ -40,10 +41,10 @@ public final class Progression {
         return result;
     }
 
-    private static String[] getProgression(int len, Random generator, int maxStep, int maxFirstValue) {
+    private static String[] getProgression(int len, int maxStep, int maxFirstValue) {
         String[] progression = new String[len];
-        int step = generator.nextInt(1, maxStep);
-        int progress = generator.nextInt(maxFirstValue);
+        int step = Utils.getRandomInt(1, maxStep);
+        int progress = Utils.getRandomInt(0, maxFirstValue);
 
         progression[0] = Integer.toString(progress);
 

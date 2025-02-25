@@ -10,22 +10,6 @@ import java.util.Scanner;
 
 
 public class App {
-    public static final int MAX_ROUNDS = 3;
-
-    public static final int EVEN_MAX_VALUE = 1000;
-
-    public static final int CALC_MAX_OPERANDS_VALUE = 100;
-
-    public static final int GCD_MAX_OPERANDS_VALUE = 100;
-
-    public static final int PROGRESSION_MIN_LENGTH = 5;
-    public static final int PROGRESSION_MAX_GENERATOR = 10;
-    public static final int PROGRESSION_MAX_STEP = 10;
-    public static final int PROGRESSION_MAX_FIRST_VALUE = 10;
-
-    public static final int PRIME_MAX_VALUE = 100;
-
-
     public static final int GREET = 1;
     public static final int EVEN = 2;
     public static final int CALC = 3;
@@ -50,8 +34,6 @@ public class App {
         Scanner in = new Scanner(System.in);
         int input = in.nextInt();
 
-        String player;
-
         switch (input) {
             case EXIT:
                 return;
@@ -59,36 +41,29 @@ public class App {
                 greeting(in);
                 return;
             case EVEN:
-                player = greeting(in);
-                Even.run(player, in, MAX_ROUNDS, EVEN_MAX_VALUE);
+                Even.run();
                 break;
             case CALC:
-                player = greeting(in);
-                Calc.run(player, in, MAX_ROUNDS, CALC_MAX_OPERANDS_VALUE);
+                Calc.run();
                 break;
             case GCD:
-                player = greeting(in);
-                Gcd.run(player, in, MAX_ROUNDS, GCD_MAX_OPERANDS_VALUE);
+                Gcd.run();
                 break;
             case PROGRESSION:
-                player = greeting(in);
-                Progression.run(player, in, MAX_ROUNDS, PROGRESSION_MIN_LENGTH, PROGRESSION_MAX_GENERATOR,
-                        PROGRESSION_MAX_STEP, PROGRESSION_MAX_FIRST_VALUE);
+                Progression.run();
                 break;
             case PRIME:
-                player = greeting(in);
-                Prime.run(player, in, MAX_ROUNDS, PRIME_MAX_VALUE);
+                Prime.run();
                 break;
             default:
                 System.out.println("Incorrect number of game.");
         }
     }
 
-    public static String greeting(Scanner in) {
+    public static void greeting(Scanner in) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String name = in.next();
         System.out.printf("Hello, %s!\n", name);
-        return name;
     }
 }
